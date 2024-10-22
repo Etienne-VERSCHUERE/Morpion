@@ -1,5 +1,5 @@
 # Notre matrice
-M = [["A1","A2","A3"],/n["B1","B2","B3"],["C1","C2","C3"]]
+M = [["A1","A2","A3"]/n,["B1","B2","B3"],["C1","C2","C3"]]
 a=input()
 print((input),"choisi une case",M)
 [0][0]="A1"
