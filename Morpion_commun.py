@@ -20,6 +20,7 @@ def choix_victoire(joueur):
 
 myDico = [["1","2","3"],["4","5","6"],["7","8","9"]]
 N = [[0,0,0],[0,0,0],[0,0,0]]
+liste=["1","2","3","4","5","6","7","8","9"]
 
 
 #fonction pour trouver l'index correspondant a input dans la matrice: myDico
@@ -31,27 +32,29 @@ def index_case_selectioné(valeur,matrice):
 
 #boucle pour les tours de jeu
 def tour (joueur,symbole):
-  choix_case = input(f"{joueur} donne un numéro de case:") 
+    choix_case = input(f"{joueur} donne un numéro de case:")
+    clef, valeur = index_case_selectioné(choix_case,myDico)
 
-  clef, valeur = index_case_selectioné(choix_case,myDico)
-  myDico[clef][valeur] = symbole
-  choix_victoire(joueur)
-  for i in myDico:
-      print(i)
-      if choix_victoire(joueur):
-                    break
+    myDico[clef][valeur] = symbole
+    for i in myDico:
+            print(i)
+    return choix_victoire(joueur)
 
-     
-   
-     
+
 
 for i in myDico:
       print(i)
 
-for r in range(5):
- tour("Joueur 1", "X")
+# Boucle principale du jeu
+while True:
+    if tour("Joueur 1", "X"):
+        break
+    if tour("Joueur 2", "O"):
+        break
+    
 
- tour("Joueur 2", "O")
+
+
 
 
 
