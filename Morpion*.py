@@ -1,7 +1,7 @@
 M = [["A1","A2","A3"],["B1","B2","B3"],["C1","C2","C3"]]
 N = [["","",""],["","",""],["","",""]]
 symbol = "X"
-# 
+symbol = "O"
 #fonction pour trouver l'index correspondant a input dans la matrice: M
 def index_case_selectioné(valeur,matrice):
     for x, ligne in enumerate(matrice):
