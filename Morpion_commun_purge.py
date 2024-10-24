@@ -10,17 +10,9 @@ def tour (joueur,symbole):
     while True:  
         choix_case = input(f"{joueur} donne un numéro de case : ")
         
-        
         if choix_case not in liste:
             print("La valeur renseignée n'est pas valide, try again.")
             continue  
-        elif len(liste) == 0:
-            print("C'est une égualité")
-            break
-        else:
-            for i in myDico:
-                print(i)
-        morpion()
 
         clef, valeur = index_case_selectioné(choix_case,myDico)
         
