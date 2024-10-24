@@ -7,7 +7,6 @@ def index_case_selectioné(valeur,matrice):
                 return (x,y)
 #Fonction pour les tours de jeu
 def tour (joueur,symbole):
-
     while True:  
         choix_case = input(f"{joueur} donne un numéro de case : ")
         
@@ -15,6 +14,13 @@ def tour (joueur,symbole):
         if choix_case not in liste:
             print("La valeur renseignée n'est pas valide, try again.")
             continue  
+        elif len(liste) == 0:
+            print("C'est une égualité")
+            break
+        else:
+            for i in myDico:
+                print(i)
+        morpion()
 
         clef, valeur = index_case_selectioné(choix_case,myDico)
         
@@ -29,13 +35,13 @@ def tour (joueur,symbole):
         return choix_victoire(joueur)
 #Fonction de jeux
 def morpion():
-   while True:
-        
 
+   while True:
         if tour("Joueur 1", "X"):
             break
         if tour("Joueur 2", "O"):
             break
+        
 #Fonction déterminant les conditions de victoire
 def choix_victoire(joueur):
 
@@ -57,8 +63,10 @@ def choix_victoire(joueur):
 myDico = [["1","2","3"],["4","5","6"],["7","8","9"]]
 liste=["1","2","3","4","5","6","7","8","9"]
 
-
+for i in myDico:
+            print(i)
 morpion()
+
 #Boucle de redemarage
 while True:
     relancer_partie=input("nouvelle partie ? :")
@@ -68,7 +76,8 @@ while True:
         print("A bientot !")
         break
     else:
-
+        for i in myDico:
+            print(i)
         morpion()
         
     
