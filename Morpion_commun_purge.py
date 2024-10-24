@@ -1,16 +1,14 @@
+#Fonction de recherche d'index
 def index_case_selectioné(valeur,matrice):
     
     for x, ligne in enumerate(matrice):
         for y,element in enumerate(ligne):
             if element == valeur:
                 return (x,y)
-
-#boucle pour les tours de jeu
+#Fonction pour les tours de jeu
 def tour (joueur,symbole):
 
-
-    while True: 
-            
+    while True:  
         choix_case = input(f"{joueur} donne un numéro de case : ")
         
         
@@ -22,20 +20,23 @@ def tour (joueur,symbole):
         
         myDico[clef][valeur] = symbole
 
+#impression de liste myDico modifée
         for i in myDico:
             print(i)
         
         liste.remove(choix_case)
         
         return choix_victoire(joueur)
-
+#Fonction de jeux
 def morpion():
-    while True:
+   while True:
+        
+
         if tour("Joueur 1", "X"):
             break
         if tour("Joueur 2", "O"):
             break
-#boucle déterminant les conditions de victoire
+#Fonction déterminant les conditions de victoire
 def choix_victoire(joueur):
 
     for ligne in myDico:
@@ -52,20 +53,22 @@ def choix_victoire(joueur):
         print(f"{joueur},vous avez gagné !! l'autre joueur paye l'apero. ")
         return True
 
-
+#variables
 myDico = [["1","2","3"],["4","5","6"],["7","8","9"]]
 liste=["1","2","3","4","5","6","7","8","9"]
 
-morpion()
 
+morpion()
+#Boucle de redemarage
 while True:
     relancer_partie=input("nouvelle partie ? :")
     myDico = [["1","2","3"],["4","5","6"],["7","8","9"]]
     liste=["1","2","3","4","5","6","7","8","9"]
     if relancer_partie == "N":
-        print("A bientot")
+        print("A bientot !")
         break
     else:
+
         morpion()
         
     

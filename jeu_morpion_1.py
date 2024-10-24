@@ -23,6 +23,10 @@ def convertion(joueur, symbole):
     
      for i in M:
             print(i)
+
+for i in M:
+    print(i)
+
 tour=0
 for tour in range (5):
  convertion("Joueur 1", "X")
@@ -32,7 +36,8 @@ for tour in range (5):
 for i in M:
     print(i)
 print(N)
-
+symbol = "X"
+symbol = "O"
 
 
 
