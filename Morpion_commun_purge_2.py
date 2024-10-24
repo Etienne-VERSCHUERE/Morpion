@@ -13,28 +13,20 @@ def tour (joueur,symbole):
         if choix_case not in liste:
             print("La valeur renseignée n'est pas valide, try again.")
             continue  
-        elif len(liste)==8:
-            
-            myDico = [["1","2","3"],["4","5","6"],["7","8","9"]]
-            liste=["1","2","3","4","5","6","7","8","9"]
-            print('stoppp')
-            continue
-
-clef, valeur = index_case_selectioné(choix_case,myDico)
         
-myDico[clef][valeur] = symbole
+
+        clef, valeur = index_case_selectioné(choix_case,myDico)
+        
+        myDico[clef][valeur] = symbole
 
 #impression de liste myDico modifée
-for i in myDico:
+        for i in myDico:
             print(i)
         
         liste.remove(choix_case)
         
         return choix_victoire(joueur)
-      
-
 #Fonction de jeux
-
 def morpion():
 
    while True:
@@ -45,6 +37,9 @@ def morpion():
         
 #Fonction déterminant les conditions de victoire
 def choix_victoire(joueur):
+    if len(liste)== 0:
+        print('Une égualitée !!!')
+        return True
 
     for ligne in myDico:
         if ligne[0] == ligne[1] == ligne[2] and ligne[0] != " ":#ligne[0]= [1.2.3], ligne[1] = [4.5.6] et ligne[2] = [7.8.9]
@@ -59,11 +54,11 @@ def choix_victoire(joueur):
     if (myDico[0][0] == myDico[1][1] == myDico[2][2] and myDico[0][0] != " ") or (myDico[0][2] == myDico[1][1] == myDico[2][0] and myDico[0][2] != " "):
         print(f"{joueur},vous avez gagné !! l'autre joueur paye l'apero. ")
         return True
-
+    
 #variables
 myDico = [["1","2","3"],["4","5","6"],["7","8","9"]]
 liste=["1","2","3","4","5","6","7","8","9"]
-a = len(liste)
+
 
 for i in myDico:
             print(i)
@@ -81,18 +76,3 @@ while True:
         for i in myDico:
             print(i)
         morpion()
-        
-    
-
-
-
-
-
-
-
-
-              
-
-
-
-
