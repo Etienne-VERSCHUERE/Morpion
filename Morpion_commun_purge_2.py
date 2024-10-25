@@ -41,8 +41,6 @@ def morpion():
 #Fonction déterminant les conditions de victoire
 def choix_victoire(joueur):
     
-    
-
     for ligne in monDico:
         if ligne[0] == ligne[1] == ligne[2] and ligne[0] != " ":
             print(f"{joueur},vous avez gagné !! l'autre joueur paye l'apero. ")
