@@ -21,11 +21,10 @@ def convertion(joueur, symbole):
      else:
         print("Votre entrée n'est pas valide, voulez-vous rejouer?")
     
-     for i in M:
-            print(i)
-
 for i in M:
-    print(i)
+    print(("_"*i))
+    print("| ",i, " |")
+
 
 tour=0
 for tour in range (5):
@@ -33,9 +32,7 @@ for tour in range (5):
  convertion("Joueur 2", "O")
  tour+=1
 
-for i in M:
-    print(i)
-print(N)
+
 symbol = "X"
 symbol = "O"
 
