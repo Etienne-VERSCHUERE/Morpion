@@ -31,9 +31,9 @@ def morpion():
     try:
         while True:
 
-            if tour(f"{rouge}Joueur 1{base}", f"{rouge}X{base}"):
+            if tour(f"{rouge}Joueur 1 : X{base}", f"{rouge}X{base}"):
                 break
-            if tour(f"{vert}Joueur 2{base}", f"{vert}O{base}"):
+            if tour(f"{vert}Joueur 2 : O{base}", f"{vert}O{base}"):
                 break
     except KeyboardInterrupt:
         exit()
