@@ -55,6 +55,10 @@ def choix_victoire(joueur):
         print(f"{joueur},vous avez gagné !! l'autre joueur paye l'apero. ")
         return True
     
+    if len(liste)== 0:
+        print('Une égalité !!!')
+        return True
+
 #Affichage travaillé de la grille de jeux:
 def grille_de_jeux():
     print("                ")
