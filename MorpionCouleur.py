@@ -56,13 +56,13 @@ def choix_victoire(joueur):
         return True
     
     if len(liste)== 0:
-        print('Une égalité !!!')
+        print(f'{jaune} Egalité !!!{base}')
         return True
 
 #Affichage travaillé de la grille de jeux:
 def grille_de_jeux():
     print("                ")
-    print("  TicTacToe")
+    print(f"  {vert}Tic{base}{rouge}Tac{base}{jaune}Toe{base}")
     print("+---+---+---+")
     print("| "+monDico[0][0]+" |"+" "+monDico[0][1]+" |"+" "+monDico[0][2]+" |")
     print("+---+---+---+")
@@ -72,13 +72,15 @@ def grille_de_jeux():
     print("+---+---+---+")
   
 #Codes couleurs
+bleu = "\033[94m"
 rouge = "\033[91m"
 vert = "\033[92m"
+jaune = "\033[93m"
 base = "\033[0m"
 
 #Nos listes:
 monDico = [["1","2","3"],["4","5","6"],["7","8","9"]]
-liste=["1","2","3","4","5","6","7","8","9"]
+liste = ["1","2","3","4","5","6","7","8","9"]
 
 grille_de_jeux()
 
@@ -88,7 +90,7 @@ morpion()
 while True:
     
     monDico = [["1","2","3"],["4","5","6"],["7","8","9"]]
-    liste=["1","2","3","4","5","6","7","8","9"]
+    liste = ["1","2","3","4","5","6","7","8","9"]
     
     demande_relancer_partie=input(f"Nouvelle partie ? ({vert}O{base} ou {rouge}N{base}) :")
     relancer_partie = demande_relancer_partie.upper()
