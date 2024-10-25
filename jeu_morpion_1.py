@@ -1,98 +1,73 @@
-# Notre matrice
-M = [ ['A1', 'A2', 'A3'], ['B1', 'B2', 'B3'], ['C1', 'C2', 'C3'] ]
-N = [[],[],[]]
+def index_case_selectioné(valeur,matrice):
+    
+    for x, ligne in enumerate(matrice):
+        for y,element in enumerate(ligne):
+            if element == valeur:
+                return (x,y)
 
-for i in M:
-    print(i)
-
-
-def convertion_joueur_1():
-   a = input("Joueur 1, dans quelle case ?")
-   if a =='A1':
-       N[0].insert(0, 1)
-       M[0][0]= 'X'
-   elif a =='A2':
-       N[0].insert(1, 1)
-       M[0][1]= 'X'
-       return 'X'
-   elif a =='A3':
-       N[0].insert(2, 1)
-       M[0][2]= 'X'
-       return 'X'
-   elif a =='B1':
-       N[1].insert(0, 1)
-       M[1][0]= 'X'
-       
-   elif a =='B2':
-       N[1].insert(1, 1)
-       M[1][1]= 'X'
-       return 'X'
-   elif a =='B3':
-       N[1].insert(2, 1)
-       M[1][2]= 'X'
-       return 'X'
-   elif a =='C1':
-       N[2].insert(0, 1)
-       M[2][0]= 'X'
-   elif a =='C2':
-       N[2].insert(1, 1)
-       M[2][1]= 'X'
-   elif a =='C3':
-       N[2].insert(2, 1)
-       M[2][2]= 'X'
-      
-def convertion_joueur_2():
-   a = input("Joueur 2, dans quelle case ?")
-   if a =='A1':
-       N[0].insert(0, 2)
-       M[0][0]= 'O'
-   elif a =='A2':
-       N[0].insert(1, 2)
-       M[0][1]= 'O'
-   elif a =='A3':
-       N[0].insert(2, 2)
-       M[0][2]= 'O'
-   elif a =='B1':
-       N[1].insert(0, 2)
-       M[1][0]= 'O'
-       
-   elif a =='B2':
-       N[1].insert(1, 2)
-       M[1][1]= 'O'
-   elif a =='B3':
-       N[1].insert(2, 2)
-       M[1][2]= 'O'
-
-   elif a =='C1':
-       N[2].insert(0, 2)
-       M[2][0]= 'O'
-   elif a =='C2':
-       N[2].insert(1, 2)
-       M[2][1]= 'O'
-   elif a =='C3':
-       N[2].insert(2, 2)
-       M[2][2]= 'O'
-
-# La première colonne.
-convertion_joueur_1()
-convertion_joueur_2() 
-convertion_joueur_1()
-convertion_joueur_2()
-convertion_joueur_1()
-convertion_joueur_2() 
-convertion_joueur_1()
-convertion_joueur_2()
-convertion_joueur_1() 
+#boucle pour les tours de jeu
+def tour (joueur,symbole):
 
 
-for i in M:
-    print(i)
+    while True: 
+            
+        choix_case = input(f"{joueur} donne un numéro de case : ")
+        
+        
+        if choix_case not in liste:
+            print("La valeur renseignée n'est pas valide, try again.")
+            continue  
 
-print(M)
-print(N)
+        clef, valeur = index_case_selectioné(choix_case,myDico)
+        
+        myDico[clef][valeur] = symbole
+
+        for i in myDico:
+            print(i)
+        
+        liste.remove(choix_case)
+        
+        return choix_victoire(joueur)
+
+def morpion():
+    while True:
+        if tour("Joueur 1", "X"):
+            break
+        if tour("Joueur 2", "O"):
+            break
+#boucle déterminant les conditions de victoire
+def choix_victoire(joueur):
+
+    for ligne in myDico:
+        if ligne[0] == ligne[1] == ligne[2] and ligne[0] != " ":#ligne[0]= [1.2.3], ligne[1] = [4.5.6] et ligne[2] = [7.8.9]
+            print(f"{joueur},vous avez gagné !! l'autre joueur paye l'apero. ")
+            return True
+    
+    for colonne in range(3):
+        if myDico[0][colonne] == myDico[1][colonne] == myDico[2][colonne] and myDico[0][colonne] != " ":
+            print(f"{joueur},vous avez gagné !! l'autre joueur paye l'apero. ")
+            return True
+        
+    if (myDico[0][0] == myDico[1][1] == myDico[2][2] and myDico[0][0] != " ") or (myDico[0][2] == myDico[1][1] == myDico[2][0] and myDico[0][2] != " "):
+        print(f"{joueur},vous avez gagné !! l'autre joueur paye l'apero. ")
+        return True
 
 
+myDico = [["1","2","3"],["4","5","6"],["7","8","9"]]
+liste=["1","2","3","4","5","6","7","8","9"]
 
+morpion()
+
+while True:
+    relancer_partie=input("nouvelle partie ? :")
+    myDico = [["1","2","3"],["4","5","6"],["7","8","9"]]
+    liste=["1","2","3","4","5","6","7","8","9"]
+    if relancer_partie == "N":
+        print("A bientot")
+        break
+    else:
+        morpion()
+        
 
 
 
